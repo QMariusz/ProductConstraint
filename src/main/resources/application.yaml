@@ -1,0 +1,3 @@
+application:
+  rest-template:
+    timeout: 1
