@@ -3,9 +3,9 @@ package com.mariusz.orlowicz;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
-import com.mariusz.orlowicz.error.CustomFeignException;
-import com.mariusz.orlowicz.infrastructure.ProductProvider;
-import com.mariusz.orlowicz.model.Product;
+import com.mariusz.orlowicz.utils.CustomFeignException;
+import com.mariusz.orlowicz.model.infrastructure.ProductProvider;
+import com.mariusz.orlowicz.model.infrastructure.Product;
 import feign.RetryableException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-class WiremockForTestingApplicationTests {
+class WiremockForProductProviderTest {
 
     private static WireMockServer wireMockServer;
 
@@ -51,7 +51,7 @@ class WiremockForTestingApplicationTests {
     }
 
     @Test
-    void should_throwFeignNotFoundException() throws Exception {
+    void should_throwFeignNotFoundException() {
         stubFor(WireMock.get(urlEqualTo("/products/notFound"))
                 .willReturn(aResponse()
                         .withStatus(404)));
@@ -68,7 +68,7 @@ class WiremockForTestingApplicationTests {
     }
 
     @Test
-    void should_throwFeignBadRequestException() throws Exception {
+    void should_throwFeignBadRequestException() {
         stubFor(WireMock.get(urlEqualTo("/products/bad_request"))
                 .willReturn(aResponse()
                         .withStatus(400)));
@@ -85,7 +85,7 @@ class WiremockForTestingApplicationTests {
     }
 
     @Test
-    void should_throwFeignServerError() throws Exception {
+    void should_throwFeignServerError() {
         stubFor(WireMock.get(urlEqualTo("/products/server_error"))
                 .willReturn(aResponse()
                         .withStatus(500)));
@@ -102,7 +102,7 @@ class WiremockForTestingApplicationTests {
     }
 
     @Test
-    void should_throwFeignGatewayTimeout() throws Exception {
+    void should_throwFeignGatewayTimeout() {
         stubFor(WireMock.get(urlEqualTo("/products/gateway_timeout"))
                 .willReturn(aResponse()
                         .withStatus(504)));

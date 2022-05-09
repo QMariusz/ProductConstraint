@@ -1,6 +1,5 @@
-package com.mariusz.orlowicz.infrastructure;
+package com.mariusz.orlowicz.model.infrastructure;
 
-import com.mariusz.orlowicz.model.Product;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

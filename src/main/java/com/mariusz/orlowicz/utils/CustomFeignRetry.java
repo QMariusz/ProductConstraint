@@ -1,4 +1,4 @@
-package com.mariusz.orlowicz.rest;
+package com.mariusz.orlowicz.utils;
 
 import feign.RetryableException;
 import feign.Retryer;

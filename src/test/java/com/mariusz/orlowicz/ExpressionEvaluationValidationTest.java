@@ -1,16 +1,16 @@
 package com.mariusz.orlowicz;
 
-import com.mariusz.orlowicz.domain.operations.BaseOperation;
-import com.mariusz.orlowicz.model.User;
-import com.mariusz.orlowicz.rest.ExpressionEvaluation;
+import com.mariusz.orlowicz.model.domain.logical_operations.BaseOperation;
+import com.mariusz.orlowicz.model.domain.User;
+import com.mariusz.orlowicz.expression.ExpressionEvaluation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static com.mariusz.orlowicz.model.User.UserConstraints.*;
+import static com.mariusz.orlowicz.model.domain.User.UserConstraints.*;
 
-class ExpressionEvaluationValidityTest {
+class ExpressionEvaluationValidationTest {
 
 	private final String EXPRESSION_1 = "OR('VIP_ONLY',AND(NOT('FOR_RICH_PEOPLE'),'WITH_RELATIONS'))";
 	private final String EXPRESSION_2 = "OR('VIP_ONLY', 'WITH_RELATIONS'))";

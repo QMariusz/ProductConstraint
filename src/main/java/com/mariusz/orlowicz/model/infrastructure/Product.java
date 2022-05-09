@@ -1,8 +1,10 @@
-package com.mariusz.orlowicz.model;
+package com.mariusz.orlowicz.model.infrastructure;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.ToString;
 
+@Getter
 @AllArgsConstructor
 @ToString
 public class Product {
@@ -42,12 +44,4 @@ public class Product {
 
     private String id;
     private String constraintText;
-
-    public String getId() {
-        return id;
-    }
-
-    public String getConstraintText() {
-        return constraintText;
-    }
 }

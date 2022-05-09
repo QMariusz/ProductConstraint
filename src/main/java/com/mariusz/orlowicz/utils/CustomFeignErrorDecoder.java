@@ -1,6 +1,5 @@
-package com.mariusz.orlowicz.rest;
+package com.mariusz.orlowicz.utils;
 
-import com.mariusz.orlowicz.error.CustomFeignException;
 import feign.Response;
 import feign.RetryableException;
 import feign.codec.ErrorDecoder;

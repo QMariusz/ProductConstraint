@@ -1,6 +1,4 @@
 application:
-  rest-template:
-    timeout: 1
   products:
     api-url: http://products.org
   feign:
@@ -12,6 +10,6 @@ feign:
       default:
         connectTimeout: 10000
         readTimeout: 10000
-        error-decoder: com.mariusz.orlowicz.rest.CustomFeignErrorDecoder
-        retryer: com.mariusz.orlowicz.rest.CustomFeignRetry
+        error-decoder: com.mariusz.orlowicz.utils.CustomFeignErrorDecoder
+        retryer: com.mariusz.orlowicz.utils.CustomFeignRetry
         loggerLevel: full

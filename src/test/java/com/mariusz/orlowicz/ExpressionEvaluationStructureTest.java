@@ -1,14 +1,14 @@
 package com.mariusz.orlowicz;
 
-import com.mariusz.orlowicz.domain.Constraint;
-import com.mariusz.orlowicz.domain.RelationLeaf;
-import com.mariusz.orlowicz.domain.RichLeaf;
-import com.mariusz.orlowicz.domain.VIPLeaf;
-import com.mariusz.orlowicz.domain.operations.AndOperation;
-import com.mariusz.orlowicz.domain.operations.BaseOperation;
-import com.mariusz.orlowicz.domain.operations.NotOperation;
-import com.mariusz.orlowicz.domain.operations.OrOperation;
-import com.mariusz.orlowicz.rest.ExpressionEvaluation;
+import com.mariusz.orlowicz.model.domain.Constraint;
+import com.mariusz.orlowicz.model.domain.constraint_leafs.HasRelationUser;
+import com.mariusz.orlowicz.model.domain.constraint_leafs.RichUser;
+import com.mariusz.orlowicz.model.domain.constraint_leafs.VIPUser;
+import com.mariusz.orlowicz.model.domain.logical_operations.AndOperation;
+import com.mariusz.orlowicz.model.domain.logical_operations.BaseOperation;
+import com.mariusz.orlowicz.model.domain.logical_operations.NotOperation;
+import com.mariusz.orlowicz.model.domain.logical_operations.OrOperation;
+import com.mariusz.orlowicz.expression.ExpressionEvaluation;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -40,17 +40,17 @@ class ExpressionEvaluationStructureTest {
 
 		Assertions.assertNotNull(orOperationConstraints);
 		Assertions.assertEquals(2, orOperationConstraints.size());
-		MatcherAssert.assertThat(orOperationConstraints.get(0), instanceOf(VIPLeaf.class));
+		MatcherAssert.assertThat(orOperationConstraints.get(0), instanceOf(VIPUser.class));
 		MatcherAssert.assertThat(orOperationConstraints.get(1), instanceOf(AndOperation.class));
 
 		Assertions.assertNotNull(andOperationConstraints);
 		Assertions.assertEquals(2, andOperationConstraints.size());
 		MatcherAssert.assertThat(andOperationConstraints.get(0), instanceOf(NotOperation.class));
-		MatcherAssert.assertThat(andOperationConstraints.get(1), instanceOf(RelationLeaf.class));
+		MatcherAssert.assertThat(andOperationConstraints.get(1), instanceOf(HasRelationUser.class));
 
 		Assertions.assertNotNull(notOperationConstraints);
 		Assertions.assertEquals(1, notOperationConstraints.size());
-		MatcherAssert.assertThat(notOperationConstraints.get(0), instanceOf(RichLeaf.class));
+		MatcherAssert.assertThat(notOperationConstraints.get(0), instanceOf(RichUser.class));
 	}
 
 	@Test
@@ -67,8 +67,8 @@ class ExpressionEvaluationStructureTest {
 
 		Assertions.assertNotNull(orOperationConstraints);
 		Assertions.assertEquals(2, orOperationConstraints.size());
-		MatcherAssert.assertThat(orOperationConstraints.get(0), instanceOf(VIPLeaf.class));
-		MatcherAssert.assertThat(orOperationConstraints.get(1), instanceOf(RelationLeaf.class));
+		MatcherAssert.assertThat(orOperationConstraints.get(0), instanceOf(VIPUser.class));
+		MatcherAssert.assertThat(orOperationConstraints.get(1), instanceOf(HasRelationUser.class));
 	}
 
 }

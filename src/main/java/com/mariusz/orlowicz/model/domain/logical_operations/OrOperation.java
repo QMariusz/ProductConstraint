@@ -1,7 +1,7 @@
-package com.mariusz.orlowicz.domain.operations;
+package com.mariusz.orlowicz.model.domain.logical_operations;
 
-import com.mariusz.orlowicz.domain.Constraint;
-import com.mariusz.orlowicz.model.User;
+import com.mariusz.orlowicz.model.domain.Constraint;
+import com.mariusz.orlowicz.model.domain.User;
 
 public class OrOperation extends LogicalOperation implements Constraint {
 
