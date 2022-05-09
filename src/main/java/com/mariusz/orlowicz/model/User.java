@@ -7,7 +7,7 @@ public class User {
     public enum UserConstraints {
         VIP,
         RICH,
-        RELATION
+        HAS_RELATIONS
     }
 
     private Set<UserConstraints> userConstraintsSet;

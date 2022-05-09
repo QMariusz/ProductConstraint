@@ -7,6 +7,6 @@ public class RelationLeaf implements Constraint {
     @Override
     public boolean validate(User user) {
         return user.getUserConstraintsSet()
-                .contains(User.UserConstraints.RELATION);
+                .contains(User.UserConstraints.HAS_RELATIONS);
     }
 }

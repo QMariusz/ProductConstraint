@@ -42,4 +42,12 @@ public class Product {
 
     private String id;
     private String constraintText;
+
+    public String getId() {
+        return id;
+    }
+
+    public String getConstraintText() {
+        return constraintText;
+    }
 }

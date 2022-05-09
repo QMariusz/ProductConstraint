@@ -11,8 +11,7 @@ import java.util.Arrays;
 
 public class ExpressionEvaluation {
 
-    public void test() {
-        String s = "OR('VIP_ONLY',AND(NOT('FOR_RICH_PEOPLE'),'WITH_RELATIONS'))";
+    public BaseOperation evaluate(String s) {
         String replacedClosingBracket = s.replace(")", "'END'");
 
         String[] split = Arrays.stream(replacedClosingBracket.split("[', (]"))
@@ -22,6 +21,7 @@ public class ExpressionEvaluation {
         BaseOperation constraint = new BaseOperation();
         createConsRecur(split, constraint, 0);
         System.out.println(constraint);
+        return constraint;
     }
 
     private void createConsRecur(String[] replaced, LogicalOperation constraint, int i) {

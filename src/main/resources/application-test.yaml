@@ -1,0 +1,3 @@
+application:
+  products:
+    api-url: http://localhost:7070
