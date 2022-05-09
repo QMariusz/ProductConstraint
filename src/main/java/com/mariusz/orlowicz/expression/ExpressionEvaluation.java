@@ -65,12 +65,12 @@ public class ExpressionEvaluation {
         return null;
     }
 
-    public static Constraint constraintFactory(String logical) {
-        if (Product.Constraints.WITH_RELATIONS.getValue().equals(logical)) {
+    public static Constraint constraintFactory(String constraint) {
+        if (Product.Constraints.WITH_RELATIONS.getValue().equals(constraint)) {
             return new HasRelationUser();
-        } else if (Product.Constraints.VIP_ONLY.getValue().equals(logical)) {
+        } else if (Product.Constraints.VIP_ONLY.getValue().equals(constraint)) {
             return new VIPUser();
-        } else if (Product.Constraints.FOR_RICH_PEOPLE.getValue().equals(logical)) {
+        } else if (Product.Constraints.FOR_RICH_PEOPLE.getValue().equals(constraint)) {
             return new RichUser();
         }
         return null;

@@ -44,6 +44,7 @@ class WiremockForProductProviderTest {
                         .withBody("{\"id\": \"id1\", \"constraintText\": \"OR(WITH_RELATION,IS_RICH)\"}")));
 
         Product product = productProvider.fetch("id1");
+
         assertThat(product.getId()).isEqualTo("id1");
         assertThat(product.getConstraintText()).isEqualTo("OR(WITH_RELATION,IS_RICH)");
 
