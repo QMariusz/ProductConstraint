@@ -21,7 +21,6 @@ class ExpressionEvaluationValidityTest {
 		User user = new User();
 		user.setUserConstraintsSet(Set.of(VIP));
 
-
 		BaseOperation expression = expressionEvaluation.evaluate(EXPRESSION_1);
 
 		Assertions.assertTrue(expression.validate(user));

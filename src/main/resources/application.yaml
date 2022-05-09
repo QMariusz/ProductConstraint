@@ -3,10 +3,15 @@ application:
     timeout: 1
   products:
     api-url: http://products.org
+  feign:
+    retry-interval: 1000
+    retry-max-attempts: 3
 feign:
   client:
     config:
       default:
         connectTimeout: 10000
         readTimeout: 10000
-        error-decoder: com.mariusz.orlowicz.rest.MyErrorDecoder
+        error-decoder: com.mariusz.orlowicz.rest.CustomFeignErrorDecoder
+        retryer: com.mariusz.orlowicz.rest.CustomFeignRetry
+        loggerLevel: full
