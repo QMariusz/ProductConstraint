@@ -10,14 +10,14 @@ import org.springframework.web.context.request.WebRequest;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(CustomFeignException.class)
-    protected ResponseEntity<CustomApplicationResponse> handleCustomFeignException(CustomFeignException ex, WebRequest request) {
+    protected ResponseEntity<CustomApplicationError> handleCustomFeignException(CustomFeignException ex, WebRequest request) {
         return ResponseEntity.status(ex.getErrorCode())
-                .body(new CustomApplicationResponse(ex.getMessage()));
+                .body(new CustomApplicationError(ex.getMessage()));
     }
 
     @ExceptionHandler(RetryableException.class)
-    protected ResponseEntity<CustomApplicationResponse> handleRetryableException(RetryableException ex, WebRequest request) {
+    protected ResponseEntity<CustomApplicationError> handleRetryableException(RetryableException ex, WebRequest request) {
         return ResponseEntity.status(ex.status())
-                .body(new CustomApplicationResponse(ex.getMessage()));
+                .body(new CustomApplicationError(ex.getMessage()));
     }
 }

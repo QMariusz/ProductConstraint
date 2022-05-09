@@ -12,4 +12,7 @@ feign:
         readTimeout: 10000
         error-decoder: com.mariusz.orlowicz.utils.CustomFeignErrorDecoder
         retryer: com.mariusz.orlowicz.utils.CustomFeignRetry
-        loggerLevel: full
+        loggerLevel: basic
+logging:
+  level:
+    com.mariusz.orlowicz.model.infrastructure: DEBUG
